@@ -1,0 +1,15 @@
+{
+  "author": "Roman Yarnykh",
+  "version": "1.0",
+  "info": "Return DICOM tags",
+  "name": "read_tags",
+  "display_name": "Read tags",
+  "docs": "Return DICOM tags",
+  "tags": [
+    "DICOM"
+  ],
+  "result": {
+    "type": "JSON"
+  },
+  "plugin_type": "ANALYZER"
+}
