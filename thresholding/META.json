@@ -1,16 +1,18 @@
 {
-    "author": "Roman Baygildin",
-    "name": "fcm",
-    "display_name": "FCM Segmentation",
-    "modalities": [
-        "MR"
-    ],
-    "params": {
-        "n_clusters": {
-            "type": "int",
-            "is_required": false
-        }
-    },
-    "type": "SEGMENT",
-    "result": "MASK"
+  "author": "Roman Baygildin",
+  "name": "thresholding",
+  "display_name": "Thresholding segmentation",
+  "version": "1.0",
+  "modalities": [
+    "MR",
+    "CT"
+  ],
+  "params": {
+    "threshold": {
+      "type": "float",
+      "is_required": true
+    }
+  },
+  "type": "SEGMENT",
+  "result": "IMAGE"
 }

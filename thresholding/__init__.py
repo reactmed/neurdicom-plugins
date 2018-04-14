@@ -1,1 +1,1 @@
-from .plugin import Plugin
+from thresholding.thresholding.plugin import Plugin

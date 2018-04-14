@@ -43,13 +43,11 @@ class Plugin:
     def initialize(self):
         pass
 
-    def process(self, img, mode: str = 'CPU', threshold=None, **kwargs):
+    def process(self, img, threshold=None, **kwargs):
         if isinstance(img, Dataset):
             img = img.pixel_array
         img, _ = median_otsu(img, 5, 10)
-        if mode == 'CPU':
-            return process_cpu(img, threshold=threshold)
-        return None
+        return process_cpu(img, threshold=threshold)
 
     def destroy(self):
         pass
