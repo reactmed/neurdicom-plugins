@@ -1,0 +1,11 @@
+{
+  "author": "Roman Baygildin",
+  "name": "read_tags",
+  "display_name": "Read tags from DICOM",
+  "version": "1.0",
+  "params": [],
+  "res": {
+    "type": "JSON"
+  },
+  "type": "ANALYZER"
+}
