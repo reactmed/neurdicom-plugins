@@ -13,6 +13,8 @@
       "is_required": true
     }
   },
-  "result": "IMAGE",
+  "result": {
+    "type": "IMAGE"
+  },
   "type": "SEGMENT"
 }
