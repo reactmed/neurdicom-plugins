@@ -11,5 +11,5 @@
   "result": {
     "type": "JSON"
   },
-  "type": "ANALYZER"
+  "plugin_type": "ANALYZER"
 }
