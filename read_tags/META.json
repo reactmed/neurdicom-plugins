@@ -4,7 +4,7 @@
   "display_name": "Read tags from DICOM",
   "version": "1.0",
   "params": [],
-  "res": {
+  "result": {
     "type": "JSON"
   },
   "type": "ANALYZER"
