@@ -10,5 +10,6 @@
   ],
   "result": {
     "type": "JSON"
-  }
+  },
+  "type": "ANALYZER"
 }
