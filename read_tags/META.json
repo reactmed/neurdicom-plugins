@@ -1,11 +1,14 @@
 {
-  "author": "Roman Baygildin",
-  "name": "read_tags",
-  "display_name": "Read tags from DICOM",
+  "author": "Roman Yarnykh",
   "version": "1.0",
-  "params": [],
+  "info": "Return DICOM tags",
+  "name": "read_tags",
+  "display_name": "Read tags",
+  "docs": "Return DICOM tags",
+  "tags": [
+    "DICOM"
+  ],
   "result": {
     "type": "JSON"
-  },
-  "type": "ANALYZER"
+  }
 }
