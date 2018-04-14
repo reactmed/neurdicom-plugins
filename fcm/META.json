@@ -2,15 +2,30 @@
     "author": "Roman Baygildin",
     "name": "fcm",
     "display_name": "FCM Segmentation",
+    "version": "1.0",
     "modalities": [
-        "MR"
+        "MR", "CT"
     ],
     "params": {
         "n_clusters": {
             "type": "int",
             "is_required": false
+        },
+        "m": {
+            "type": "float",
+            "is_required": false
+        },
+        "eps": {
+            "type": "float",
+            "is_required": false
+        },
+        "max_it": {
+            "type": "int",
+            "is_required": false
         }
     },
-    "type": "SEGMENT",
-    "result": "MASK"
+    "result": {
+        "type": "IMAGE"
+    },
+    "type": "SEGMENT"
 }
