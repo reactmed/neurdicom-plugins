@@ -16,7 +16,7 @@ class Plugin:
         c, u, a1, a2, a3, a4, a5 = cmeans(flat, n_clusters, m, eps, max_it)
         tumor_index = np.argmax(c, axis=0)
         defuz = np.argmax(u, axis=0)
-        mask = np.full(defuz.shape[0], 0)
+        mask = np.full(defuz.shape[0], 0, dtype=np.uint16)
         mask[defuz == tumor_index] = 1
         mask = mask.reshape(img.shape)
         k1 = np.ones((3, 3), np.uint16)
