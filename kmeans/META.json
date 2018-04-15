@@ -12,5 +12,7 @@
         }
     },
     "type": "SEGMENT",
-    "result": "MASK"
+    "result": {
+        "type": "IMAGE"
+    }
 }
