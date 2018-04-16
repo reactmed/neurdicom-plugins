@@ -4,7 +4,7 @@ import numpy as np
 import cv2 as cv
 
 
-def find_threshold_cpu(img, k=100, eps=0.001):
+def find_threshold_cpu(img, max_it=100, eps=0.001):
     cols = img.shape[1]
 
     mid = cols // 2
@@ -19,15 +19,15 @@ def find_threshold_cpu(img, k=100, eps=0.001):
 
         t = (t1 + t2) / 2.0
         it += 1
-        if it >= k or abs(t1 - t2) <= eps:
+        if it >= max_it or abs(t1 - t2) <= eps:
             return t
         else:
             p1 = img[img < t]
             p2 = img[img >= t]
 
 
-def process_cpu(img, threshold=None):
-    t = threshold or find_threshold_cpu(img, eps=0.000001)
+def process_cpu(img, threshold=None, max_it=100, eps=0.001):
+    t = threshold or find_threshold_cpu(img, max_it=max_it, eps=eps)
     mask = (img > t).astype(np.int16)
     k1 = np.ones((3, 3), np.uint16)
     k2 = np.ones((5, 5), np.uint16)
@@ -43,11 +43,16 @@ class Plugin:
     def initialize(self):
         pass
 
-    def process(self, img, threshold=None, **kwargs):
+    def process(self, img, **kwargs):
+        threshold = kwargs.get('threshold', None)
+        max_it = kwargs.get('max_it', 100)
+        eps = kwargs.get('eps', 0.001)
+        numpass = kwargs.get('numpass', 10)
+        median_radius = kwargs.get('median_radius', 5)
         if isinstance(img, Dataset):
             img = img.pixel_array
-        img, _ = median_otsu(img, 5, 10)
-        return process_cpu(img, threshold=threshold)
+        img, _ = median_otsu(img, median_radius=median_radius, numpass=numpass, autocrop=True)
+        return process_cpu(img, threshold=threshold, max_it=max_it, eps=eps)
 
     def destroy(self):
         pass
