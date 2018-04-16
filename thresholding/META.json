@@ -17,24 +17,28 @@
     "max_it": {
       "type": "int",
       "is_required": false,
+      "default": 100,
       "display_name": "Maximum iterations",
       "hint": "Maximum iterations of thresholding segmentation"
     },
     "eps": {
       "type": "float",
       "is_required": false,
+      "default": 0.001,
       "display_name": "Error",
       "hint": "Stop criterion"
     },
     "numpass": {
       "type": "int",
       "is_required": false,
+      "default": 10,
       "display_name": "Number of pass",
       "hint": "Number of skull stripping passes"
     },
     "median_radius": {
       "type": "int",
       "is_required": false,
+      "default": 5,
       "display_name": "Median radius",
       "hint": "Median radius of skull stripping"
     }
