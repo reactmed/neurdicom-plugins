@@ -26,18 +26,6 @@ def find_threshold_cpu(img, max_it=100, eps=0.001):
             p2 = img[img >= t]
 
 
-def process_cpu(img, threshold=None, max_it=100, eps=0.001):
-    t = threshold or find_threshold_cpu(img, max_it=max_it, eps=eps)
-    mask = (img > t).astype(np.int16)
-    k1 = np.ones((3, 3), np.uint16)
-    k2 = np.ones((5, 5), np.uint16)
-    mask = cv.erode(mask, k2, iterations=1)
-    mask = cv.dilate(mask, k1, iterations=1)
-    mask = cv.erode(mask, k2, iterations=2)
-    mask = cv.dilate(mask, k1, iterations=5)
-    return mask
-
-
 class Plugin:
 
     def initialize(self):
@@ -51,8 +39,16 @@ class Plugin:
         median_radius = kwargs.get('median_radius', 5)
         if isinstance(img, Dataset):
             img = img.pixel_array
-        img, _ = median_otsu(img, median_radius=median_radius, numpass=numpass, autocrop=True)
-        return process_cpu(img, threshold=threshold, max_it=max_it, eps=eps)
+        skull_stripped, _ = median_otsu(img, median_radius=median_radius, numpass=numpass, autocrop=True)
+        t = threshold or find_threshold_cpu(skull_stripped, max_it=max_it, eps=eps)
+        mask = (img > t).astype(np.int16)
+        k1 = np.ones((3, 3), np.uint16)
+        k2 = np.ones((5, 5), np.uint16)
+        mask = cv.erode(mask, k2, iterations=1)
+        mask = cv.dilate(mask, k1, iterations=1)
+        mask = cv.erode(mask, k2, iterations=2)
+        mask = cv.dilate(mask, k1, iterations=5)
+        return mask
 
     def destroy(self):
         pass
