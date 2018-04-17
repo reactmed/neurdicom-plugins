@@ -1,9 +1,11 @@
 {
   "author": "Roman Baygildin",
   "name": "fcm",
+  "version": "1.0",
   "display_name": "FCM Segmentation",
   "modalities": [
-    "MR"
+    "MR",
+    "CT"
   ],
   "params": {
     "n_clusters": {
