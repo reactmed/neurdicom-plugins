@@ -10,10 +10,13 @@ class Plugin:
     def initialize(self):
         pass
 
-    def process(self, img, n_clusters=3, **kwargs):
+    def process(self, img, **kwargs):
+        n_clusters = kwargs.get('n_clusters', 3)
+        numpass = kwargs.get('numpass', 5)
+        median_radius = kwargs.get('median_radius', 10)
         if isinstance(img, Dataset):
             img = img.pixel_array
-        img, mask = median_otsu(img, 5, 10)
+        img, mask = median_otsu(img, numpass=numpass, median_radius=median_radius)
         x = img.reshape((-1, 1))
         k_means = KMeans(n_clusters=n_clusters, random_state=0).fit(x)
         c_index = np.argmax(k_means.cluster_centers_.reshape((-1)))
