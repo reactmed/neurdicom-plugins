@@ -2,7 +2,7 @@
   "author": "Roman Baygildin",
   "name": "kmeans",
   "version": "1.0",
-  "display_name": "FCM Segmentation",
+  "display_name": "KMeans Segmentation",
   "modalities": [
     "MR",
     "CT"
