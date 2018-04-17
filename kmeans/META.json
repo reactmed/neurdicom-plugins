@@ -1,6 +1,6 @@
 {
   "author": "Roman Baygildin",
-  "name": "fcm",
+  "name": "kmeans",
   "version": "1.0",
   "display_name": "FCM Segmentation",
   "modalities": [
