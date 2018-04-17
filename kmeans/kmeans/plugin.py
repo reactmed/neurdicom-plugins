@@ -16,11 +16,11 @@ class Plugin:
         median_radius = kwargs.get('median_radius', 10)
         if isinstance(img, Dataset):
             img = img.pixel_array
-        img, mask = median_otsu(img, numpass=numpass, median_radius=median_radius)
+        img, _ = median_otsu(img, numpass=numpass, median_radius=median_radius)
         x = img.reshape((-1, 1))
         k_means = KMeans(n_clusters=n_clusters, random_state=0).fit(x)
         c_index = np.argmax(k_means.cluster_centers_.reshape((-1)))
-        flat = np.full(img.shape[0] * img.shape[1], 0)
+        flat = np.full(img.shape[0] * img.shape[1], 0, dtype=np.uint8)
         flat[k_means.labels_ == c_index] = 1
         mask = flat.reshape(img.shape)
         k1 = np.ones((3, 3), np.uint16)
