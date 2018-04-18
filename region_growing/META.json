@@ -1,18 +1,62 @@
 {
-    "author": "Roman Baygildin",
-    "name": "fcm",
-    "display_name": "FCM Segmentation",
-    "modalities": [
-        "MR"
-    ],
-    "params": {
-        "n_clusters": {
-            "type": "int",
-            "is_required": false
-        }
+  "author": "Roman Baygildin",
+  "name": "region_growing",
+  "version": "1.0",
+  "display_name": "Region Growing Segmentation",
+  "modalities": [
+    "MR",
+    "CT"
+  ],
+  "params": {
+    "numpass": {
+      "type": "int",
+      "is_required": false,
+      "default": 10,
+      "display_name": "Number of pass",
+      "hint": "Number of skull stripping passes"
     },
-    "type": "SEGMENT",
-    "result": {
-        "type": "IMAGE"   
+    "median_radius": {
+      "type": "int",
+      "is_required": false,
+      "default": 5,
+      "display_name": "Median radius",
+      "hint": "Median radius of skull stripping"
+    },
+    "threshold": {
+      "type": "int",
+      "is_required": false,
+      "default": 10,
+      "display_name": "Region membership threshold",
+      "hint": "Region membership threshold"
+    },
+    "connectivity": {
+      "type": "int",
+      "is_required": false,
+      "default": 6,
+      "range": [
+        6,
+        8
+      ],
+      "display_name": "Connectivity",
+      "hint": "Connectivity"
+    },
+    "dilation_radius": {
+      "type": "int",
+      "is_required": false,
+      "default": 5,
+      "display_name": "Dilation radius",
+      "hint": "Dilation radius"
+    },
+    "dilation_iterations": {
+      "type": "int",
+      "is_required": false,
+      "default": 1,
+      "display_name": "Dilation iterations",
+      "hint": "Dilation iterations"
     }
+  },
+  "type": "SEGMENT",
+  "result": {
+    "type": "IMAGE"
+  }
 }
