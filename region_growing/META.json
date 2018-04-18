@@ -8,6 +8,18 @@
     "CT"
   ],
   "params": {
+    "seed_point_x": {
+      "type": "int",
+      "is_required": true,
+      "display_name": "Seed point X",
+      "hint": "Seed point X"
+    },
+     "seed_point_y": {
+      "type": "int",
+      "is_required": true,
+      "display_name": "Seed point Y",
+      "hint": "Seed point Y"
+    },
     "numpass": {
       "type": "int",
       "is_required": false,
