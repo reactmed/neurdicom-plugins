@@ -41,7 +41,7 @@ class Plugin:
         # flat = np.full(original_shape[0] * original_shape[1], 0, dtype=np.uint8)
         # flat[mean_shift.labels_ == c_index] = 1
         mask = mean_shift.labels_.reshape(original_shape)
-        mask = cv.dilate(mask, np.ones((dilation_radius, dilation_radius)), iterations=dilation_iterations)
+        # mask = cv.dilate(mask, np.ones((dilation_radius, dilation_radius)), iterations=dilation_iterations)
         return mask
 
     def destroy(self):

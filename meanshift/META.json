@@ -8,6 +8,20 @@
     "CT"
   ],
   "params": {
+    "quantile": {
+      "type": "float",
+      "is_required": false,
+      "default": 0.1,
+      "display_name": "Quantile",
+      "hint": "Quantile"
+    },
+    "n_samples": {
+      "type": "int",
+      "is_required": false,
+      "default": 100,
+      "display_name": "Number of samples",
+      "hint": "Number of samples"
+    },
     "numpass": {
       "type": "int",
       "is_required": false,
