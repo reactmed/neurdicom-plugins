@@ -75,6 +75,9 @@ class Plugin:
 
     def process(self, img, threshold, connectivity=6, dilation_radius=5, dilation_iterations=1, seed_point=None,
                 **kwargs):
+        seed_point_x = kwargs.get('seed_point_x', 100)
+        seed_point_y = kwargs.get('seed_point_y', 100)
+        seed_point = [seed_point_x, seed_point_y]
         if isinstance(img, Dataset):
             img = img.pixel_array
         stack = [seed_point]
