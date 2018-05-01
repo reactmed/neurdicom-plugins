@@ -26,7 +26,7 @@ def set_coords(point, x_offset, y_offset, w, h):
 
 
 def is_below(img, p1, p2, th):
-    return abs(img[y(p1), x(p1)] - img[y(p2), x(p2)]) <= th
+    return abs(img[x(p1), y(p1)] - img[x(p2), y(p2)]) <= th
 
 
 def growing_region_8(img, seed_point, threshold):
@@ -95,10 +95,9 @@ class Plugin:
             for i in range(3):
                 for j in range(3):
                     pos = set_coords(current, i - 1, j - 1, w, h)
-                    if not mask[y(pos), x(pos)] and is_below(img, seed_point, pos, threshold):
-                        mask[y(pos), x(pos)] = True
+                    if not mask[x(pos), y(pos)] and is_below(img, seed_point, pos, threshold):
+                        mask[x(pos), y(pos)] = True
                         stack.appendleft(pos)
-
 
         mask = mask.astype(np.uint8)
         return mask
@@ -114,22 +113,35 @@ class NativePlugin:
     def __init__(self, path):
         self.lib = cdll.LoadLibrary(path)
         self.obj = self.lib.InitPlugin()
-        self.lib.Process.argtypes = [c_void_p, c_float_p, c_int, c_int, POINTER(c_char)]
+        self.lib.Process.argtypes = [c_void_p, c_float_p, c_int_p, c_int, POINTER(c_char)]
         self.lib.Process.restype = c_int_p
 
     def process(self, a: np.ndarray, **kwargs):
-        w = a.shape[1]
-        h = a.shape[0]
+        images_count = 1
+        if a.ndim == 2:
+            w = a.shape[1]
+            h = a.shape[0]
+            IntArray = c_int * 2
+            images_size = IntArray(w, h)
+        else:
+            images_count = a.shape[0]
+            w = a.shape[2]
+            h = a.shape[1]
+            IntArray = c_int * (images_count * 2)
+            images_size = IntArray(*list([w, h] * images_count))
         params = create_string_buffer(str.encode(dumps(kwargs)))
         img = a.ctypes.data_as(c_float_p)
-        cres = self.lib.Process(self.obj, img, w, h, params)
-        return np.ctypeslib.as_array(cres, shape=(h, w))
+        cres = self.lib.Process(self.obj, img, images_size, images_count, params)
+        if images_count == 1:
+            return np.ctypeslib.as_array(cres, shape=(h, w))
+        else:
+            return np.ctypeslib.as_array(cres, shape=(images_count, h, w))
 
-plugin = NativePlugin('./cmake-build-debug/libc_regiongrowing.dylib')
+plugin = NativePlugin('./cmake-build-debug/libc_region_growing.dylib')
 # a = read_file('/Users/macbook/Desktop/brain.dcm').pixel_array
 # a = (a - np.min(a)) / (np.max(a) - np.min(a))
 
-a = np.random.rand(1024, 1024)
+a = np.random.rand(59, 512, 512)
 
 start = time()
 res = plugin.process(a.astype(np.float32), threshold=1.0, x=1, y=1)
@@ -138,11 +150,11 @@ nativeTime = end - start
 print('Native', nativeTime, 'secs')
 print((res == 1).sum())
 
-plugin = Plugin()
-start = time()
-res = plugin.process(a, threshold=1.0, seed_point_x=1, seed_point_y=1)
-end = time()
-pythonTime = end - start
-print('Python', pythonTime, 'secs')
-print((res == True).sum())
-print('Speedup', pythonTime / nativeTime)
+# plugin = Plugin()
+# start = time()
+# res = plugin.process(a, threshold=1.0, seed_point_x=1, seed_point_y=1)
+# end = time()
+# pythonTime = end - start
+# print('Python', pythonTime, 'secs')
+# print((res == True).sum())
+# print('Speedup', pythonTime / nativeTime)

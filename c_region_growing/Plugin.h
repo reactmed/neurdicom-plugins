@@ -9,7 +9,9 @@
 class Plugin {
 public:
     Plugin();
-    int * process(const float *, int, int, const char *params);
+
+    int *process(const float *img, const int *imagesSizes, int imagesCount, const char *params);
+
     ~Plugin();
 };
 
