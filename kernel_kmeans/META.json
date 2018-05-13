@@ -1,13 +1,33 @@
 {
-  "author": "Roman Baygildin",
-  "name": "c_region_growing",
+  "author": "Roman Baigildin",
+  "name": "kernek_kmean",
   "version": "1.0",
-  "display_name": "Region Growing Segmentation",
+  "display_name": "Kernel KMeans Segmentation",
   "modalities": [
     "MR",
     "CT"
   ],
   "params": {
+    "n_clusters": {
+      "type": "int",
+      "is_required": false,
+      "default": 3,
+      "display_name": "Number of clusters",
+      "hint": "Number of clusters"
+    },
+    "kernel": {
+      "type": "string",
+      "is_required": false,
+      "default": "cos",
+      "display_name": "Kernel",
+      "values": {
+        "cos": "Cosinus",
+        "gauss": "Gauss",
+        "triangular": "Triangular",
+        "epanechnikov": "Epanechnikov"
+      },
+      "hint": "Kernel"
+    },
     "numpass": {
       "type": "int",
       "is_required": false,
@@ -22,25 +42,19 @@
       "display_name": "Median radius",
       "hint": "Median radius of skull stripping"
     },
-    "threshold": {
+    "high_intensity_threshold": {
       "type": "float",
       "is_required": false,
-      "default": 50.0,
-      "range": [0.0, 100.0],
-      "step": 5.0,
-      "display_name": "Region membership threshold",
-      "hint": "Region membership threshold"
+      "default": 0.1,
+      "display_name": "High intensity threshold",
+      "hint": "High intensity threshold"
     },
-    "connectivity": {
+    "blur_radius": {
       "type": "int",
       "is_required": false,
-      "default": 6,
-      "range": [
-        6,
-        8
-      ],
-      "display_name": "Connectivity",
-      "hint": "Connectivity"
+      "default": 5,
+      "display_name": "Blur radius",
+      "hint": "Blur radius"
     },
     "dilation_radius": {
       "type": "int",

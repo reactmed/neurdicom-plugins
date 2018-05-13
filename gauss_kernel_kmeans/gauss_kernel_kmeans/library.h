@@ -4,7 +4,7 @@
 #include "Plugin.h"
 
 extern "C" Plugin *InitPlugin();
-extern "C" int *Process(Plugin *plugin, const float *img, const int *imagesSize, int imagesCount, const char *params);
+extern "C" int *Process(Plugin *plugin, const float *img, const int w, const int h, const char *params);
 extern "C" void DestroyPlugin(Plugin *plugin);
 
 #endif

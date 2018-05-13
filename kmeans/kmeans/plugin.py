@@ -7,8 +7,8 @@ from sklearn.cluster import KMeans
 
 class Plugin:
 
-    def initialize(self):
-        pass
+    def __enter__(self):
+        print('KMeans: plugin is starting')
 
     def process(self, img, **kwargs):
         n_clusters = kwargs.get('n_clusters', 3)
@@ -31,5 +31,5 @@ class Plugin:
         mask = cv.dilate(mask, k1, iterations=5)
         return mask
 
-    def destroy(self):
-        pass
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print('KMeans: plugin destroys context')

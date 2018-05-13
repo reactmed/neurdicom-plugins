@@ -1,21 +1,17 @@
+import numpy as np
+from pydicom import read_file
 from ctypes import *
 import platform
 import numpy as np
 import os
 from pathlib import Path
 from json import *
+from time import time
 
 c_float_p = POINTER(c_float)
 c_int_p = POINTER(c_int)
 
-PARENT_DIR = os.path.dirname(os.path.abspath(__file__))
-print(PARENT_DIR)
-
-SYSTEM = platform.system()
-if SYSTEM == 'Darwin':
-    LIB_PATH = '%s/extension/build/%s/libc_region_growing.dylib' % (PARENT_DIR, SYSTEM)
-else:
-    raise ValueError('Platform "%s" is not supported' % SYSTEM)
+LIB_PATH = './libgauss_kernel_kmeans.dylib'
 
 
 class Plugin:
@@ -29,16 +25,15 @@ class Plugin:
     def __enter__(self):
         return self
 
-    def process(self, a: np.ndarray, seed_point, **kwargs):
+    def process(self, a: np.ndarray, **kwargs):
         w = a.shape[1]
         h = a.shape[0]
-        seed_point = seed_point or [0, 0]
         params = {
-            'seedPointX': seed_point[0],
-            'seedPointY': seed_point[1]
+            'n_clusters': kwargs.get('n_clusters', 2),
+            'max_it': kwargs.get('max_it', 100),
+            'eps': kwargs.get('eps', 0.001),
+            'sigma': kwargs.get('sigma', 1.0)
         }
-        params.update(kwargs)
-        params['threshold'] = params.get('threshold', 100.0) / 100.0
         params = create_string_buffer(str.encode(dumps(params)))
         a_min, a_max = np.min(a), np.max(a)
         a = (a - a_min) / (a_max - a_min)
@@ -50,4 +45,3 @@ class Plugin:
     def __exit__(self, exc_type, exc_val, exc_tb):
         # self.lib.DestroyPlugin(self.obj)
         pass
-

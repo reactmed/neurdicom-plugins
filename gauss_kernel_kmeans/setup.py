@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import os.path as path
 
 setup(
-    name='read_tags',
+    name='gauss_kernel_kmeans',
     version='1.0',
     author='Roman Baygild',
     author_email='egdeveloper@mail.ru',
@@ -17,10 +17,10 @@ setup(
     keywords='DICOM',
     packages=find_packages(),
     install_requires=[
-        'pydicom'
+        'pydicom', 'dipy', 'numpy', 'opencv-python', 'scikit-learn'
     ],
     dependency_links=[
         "git+git://github.com/pydicom/pydicom"
     ],
-    long_description=open(path.join(path.dirname(__file__), 'README.txt')).read(),
+    long_description=open(path.join(path.dirname(__file__), 'README.md')).read(),
 )
