@@ -112,6 +112,7 @@ class Plugin:
         h = img.shape[0]
         n = w * h
 
+        all_segments = kwargs.get('all_segments', True)
         max_it = kwargs.get('max_it', 100)
         if not isinstance(max_it, int) or max_it <= 0:
             raise ValueError('Number of iterations should not be negative')
@@ -175,13 +176,15 @@ class Plugin:
         cuda.memcpy_dtoh(centers, centers_gpu)
 
         labels = labels.reshape((-1))
+        if not all_segments:
+            c_index = np.argmax(centers)
+            flat = np.full(n, 0, dtype=np.uint8)
+            flat[labels == c_index] = 1
+            mask = flat.reshape((h, w))
 
-        c_index = np.argmax(centers)
-        flat = np.full(n, 0, dtype=np.uint8)
-        flat[labels == c_index] = 1
-        mask = flat.reshape((h, w))
-
-        return mask
+            return mask
+        else:
+            return labels.reshape((h, w))
 
     def __exit__(self, exc_type, exc_val, exc_traceback):
         return self

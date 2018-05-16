@@ -8,7 +8,7 @@
     "CT"
   ],
   "params": {
-     "max_it": {
+    "max_it": {
       "type": "int",
       "is_required": false,
       "default": 100,
@@ -63,6 +63,13 @@
       "default": 1,
       "display_name": "Dilation iterations",
       "hint": "Dilation iterations"
+    },
+    "all_segments": {
+      "type": "bool",
+      "is_required": false,
+      "default": true,
+      "display_name": "Get all segments",
+      "hint": "Get all segments"
     }
   },
   "type": "SEGMENT",
