@@ -11,7 +11,14 @@ from time import time
 c_float_p = POINTER(c_float)
 c_int_p = POINTER(c_int)
 
-LIB_PATH = './libgauss_kernel_kmeans.dylib'
+PARENT_DIR = os.path.dirname(os.path.abspath(__file__))
+print(PARENT_DIR)
+
+SYSTEM = platform.system()
+if SYSTEM == 'Darwin':
+    LIB_PATH = '%s/extension/build/%s/libgauss_kernel_kmeans.dylib' % (PARENT_DIR, SYSTEM)
+else:
+    raise ValueError('Platform "%s" is not supported' % SYSTEM)
 
 
 class Plugin:

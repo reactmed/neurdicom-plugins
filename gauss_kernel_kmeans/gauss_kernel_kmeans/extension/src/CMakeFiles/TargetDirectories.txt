@@ -1,0 +1,3 @@
+/Users/macbook/Documents/Education/4_Year/DiplomaWork/Application/NEW/neurdicom_plugins/gauss_kernel_kmeans/gauss_kernel_kmeans/CMakeFiles/rebuild_cache.dir
+/Users/macbook/Documents/Education/4_Year/DiplomaWork/Application/NEW/neurdicom_plugins/gauss_kernel_kmeans/gauss_kernel_kmeans/CMakeFiles/edit_cache.dir
+/Users/macbook/Documents/Education/4_Year/DiplomaWork/Application/NEW/neurdicom_plugins/gauss_kernel_kmeans/gauss_kernel_kmeans/CMakeFiles/gauss_kernel_kmeans.dir

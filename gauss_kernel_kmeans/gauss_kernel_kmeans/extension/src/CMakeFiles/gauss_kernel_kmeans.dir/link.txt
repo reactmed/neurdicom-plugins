@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -dynamiclib -Wl,-headerpad_max_install_names  -o libgauss_kernel_kmeans.dylib -install_name @rpath/libgauss_kernel_kmeans.dylib CMakeFiles/gauss_kernel_kmeans.dir/library.cpp.o CMakeFiles/gauss_kernel_kmeans.dir/Plugin.cpp.o 

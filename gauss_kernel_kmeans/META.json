@@ -12,6 +12,7 @@
       "type": "int",
       "is_required": false,
       "default": 3,
+      "range": [2, 32],
       "display_name": "Number of clusters",
       "hint": "Number of clusters"
     },
