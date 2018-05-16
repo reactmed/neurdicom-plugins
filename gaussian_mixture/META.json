@@ -1,0 +1,37 @@
+{
+  "author": "Roman Baygildin",
+  "name": "gaussian_mixture",
+  "version": "1.0",
+  "display_name": "Gaussian Mixture Segmentation",
+  "modalities": [
+    "MR",
+    "CT"
+  ],
+  "params": {
+    "n_components": {
+      "type": "int",
+      "is_required": false,
+      "default": 3,
+      "display_name": "Number of components",
+      "hint": "Number of components"
+    },
+    "numpass": {
+      "type": "int",
+      "is_required": false,
+      "default": 10,
+      "display_name": "Number of pass",
+      "hint": "Number of skull stripping passes"
+    },
+    "median_radius": {
+      "type": "int",
+      "is_required": false,
+      "default": 5,
+      "display_name": "Median radius",
+      "hint": "Median radius of skull stripping"
+    }
+  },
+  "type": "SEGMENT",
+  "result": {
+    "type": "IMAGE"
+  }
+}
