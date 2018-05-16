@@ -23,5 +23,5 @@ setup(
         "git+git://github.com/pydicom/pydicom"
     ],
     long_description=open(path.join(path.dirname(__file__), 'README.md')).read(),
-    package_data={'': ['extension/build/Darwing/*.dylib']}
+    package_data={'': ['extension/build/Darwin/*.dylib']}
 )
