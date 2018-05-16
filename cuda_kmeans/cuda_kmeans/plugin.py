@@ -135,9 +135,9 @@ class Plugin:
         img = cv.erode(img, np.ones((3, 3)), iterations=1)
         img = cv.blur(img, (blur_radius, blur_radius))
 
-        src = (img - np.min(img)) / (np.max(img) - np.min(img))
-        src = src.astype(np.float32)
-        src = src.reshape((-1, 1))
+        # src = (img - np.min(img)) / (np.max(img) - np.min(img))
+        src = img.astype(np.float32)
+        src = src.reshape((-1))
 
         centers = np.random.rand(n_clusters).astype(np.float32)
 
@@ -182,4 +182,4 @@ class Plugin:
         return mask
 
     def __exit__(self, exc_type, exc_val, exc_traceback):
-        pass
+        return self
