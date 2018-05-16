@@ -1,6 +1,6 @@
 {
   "author": "Roman Baygildin",
-  "name": "gauss_kernek_kmean",
+  "name": "gauss_kernel_kmeans",
   "version": "1.0",
   "display_name": "Gauss KMeans Segmentation",
   "modalities": [
