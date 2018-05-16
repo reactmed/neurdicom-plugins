@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -dynamiclib -Wl,-headerpad_max_install_names  -o libc_region_growing.dylib -install_name @rpath/libc_region_growing.dylib CMakeFiles/c_region_growing.dir/library.cpp.o CMakeFiles/c_region_growing.dir/Plugin.cpp.o 

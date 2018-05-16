@@ -113,7 +113,11 @@ class Plugin:
         n = w * h
 
         max_it = kwargs.get('max_it', 100)
+        if not isinstance(max_it, int) or max_it <= 0:
+            raise ValueError('Number of iterations should not be negative')
         n_clusters = kwargs.get('n_clusters', 2)
+        if not isinstance(n_clusters, int) or n_clusters <= 0:
+            raise ValueError('Number of clusters should not be less than 1')
 
         numpass = kwargs.get('numpass', 5)
         median_radius = kwargs.get('median_radius', 10)
