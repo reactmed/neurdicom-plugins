@@ -1,6 +1,6 @@
 {
   "author": "Roman Baigildin",
-  "name": "kernel_kmean",
+  "name": "kernel_kmeans",
   "version": "1.0",
   "display_name": "Kernel KMeans Segmentation",
   "modalities": [
