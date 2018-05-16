@@ -174,6 +174,8 @@ class Plugin:
         cuda.memcpy_dtoh(labels, labels_gpu)
         cuda.memcpy_dtoh(centers, centers_gpu)
 
+        labels = labels.reshape((-1))
+
         c_index = np.argmax(centers)
         flat = np.full(n, 0, dtype=np.uint8)
         flat[labels == c_index] = 1
