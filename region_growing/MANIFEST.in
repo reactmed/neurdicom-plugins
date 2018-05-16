@@ -1,1 +1,1 @@
-include c_region_growing/extension/build/Darwin/*.dylib
+include region_growing/extension/build/Darwin/*.dylib

@@ -16,7 +16,7 @@ class Plugin:
         numpass = kwargs.get('numpass', 5)
         median_radius = kwargs.get('median_radius', 10)
         high_intensity_threshold = kwargs.get('high_intensity_threshold', 0.1)
-        blur_radius = kwargs.get('blur_radius', 5)
+        blur_radius = kwargs.get('blur_radius', 9)
         dilation_radius = kwargs.get('dilation_radius', 5)
         dilation_iterations = kwargs.get('dilation_iterations', 1)
         if isinstance(img, Dataset):

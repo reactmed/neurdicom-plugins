@@ -1,6 +1,6 @@
 {
   "author": "Roman Baygildin",
-  "name": "c_region_growing",
+  "name": "region_growing",
   "version": "1.0",
   "display_name": "Region Growing Segmentation",
   "modalities": [
