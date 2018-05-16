@@ -1,0 +1,3 @@
+/Users/macbook/Documents/Education/4_Year/DiplomaWork/Application/NEW/neurdicom_plugins/kernel_kmeans/kernel_kmeans/extension/src/CMakeFiles/rebuild_cache.dir
+/Users/macbook/Documents/Education/4_Year/DiplomaWork/Application/NEW/neurdicom_plugins/kernel_kmeans/kernel_kmeans/extension/src/CMakeFiles/edit_cache.dir
+/Users/macbook/Documents/Education/4_Year/DiplomaWork/Application/NEW/neurdicom_plugins/kernel_kmeans/kernel_kmeans/extension/src/CMakeFiles/kernel_kmeans.dir

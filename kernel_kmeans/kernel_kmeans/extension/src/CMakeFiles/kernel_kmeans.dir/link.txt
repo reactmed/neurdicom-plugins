@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -dynamiclib -Wl,-headerpad_max_install_names  -o libkernel_kmeans.dylib -install_name @rpath/libkernel_kmeans.dylib CMakeFiles/kernel_kmeans.dir/library.cpp.o CMakeFiles/kernel_kmeans.dir/Plugin.cpp.o 
