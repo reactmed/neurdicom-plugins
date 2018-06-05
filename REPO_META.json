@@ -1,0 +1,30 @@
+{
+  "name": "neurdicom_plugins",
+  "url": "https://github.com/reactmed/neurdicom",
+  "plugins": [
+    {
+      "name": "ndicom_cuda_kmeans"
+    },
+    {
+      "name": "ndicom_fcm"
+    },
+    {
+      "name": "ndicom_gaussian_mixture"
+    },
+    {
+      "name": "ndicom_improved_kmeans"
+    },
+    {
+      "name": "ndicom_kmeans"
+    },
+    {
+      "name": "ndicom_meanshift"
+    },
+    {
+      "name": "ndicom_region_growing"
+    },
+    {
+      "name": "ndicom_thresholding"
+    }
+  ]
+}

@@ -11,6 +11,7 @@ class Plugin:
         print('KMeans: plugin is starting')
 
     def process(self, img, **kwargs):
+        print('KMeans: processing image')
         n_clusters = kwargs.get('n_clusters', 3)
         numpass = kwargs.get('numpass', 5)
         median_radius = kwargs.get('median_radius', 10)
@@ -18,7 +19,7 @@ class Plugin:
             img = img.pixel_array
         img, _ = median_otsu(img, numpass=numpass, median_radius=median_radius)
         x = img.reshape((-1, 1))
-        k_means = KMeans(n_clusters=n_clusters, random_state=0).fit(x)
+        k_means = KMeans(n_clusters=n_clusters, random_state=0, n_init=1).fit(x)
         c_index = np.argmax(k_means.cluster_centers_.reshape((-1)))
         flat = np.full(img.shape[0] * img.shape[1], 0, dtype=np.uint8)
         flat[k_means.labels_ == c_index] = 1

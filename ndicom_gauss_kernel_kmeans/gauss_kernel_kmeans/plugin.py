@@ -1,12 +1,9 @@
-import numpy as np
-from pydicom import read_file
-from ctypes import *
-import platform
-import numpy as np
 import os
-from pathlib import Path
+import platform
+from ctypes import *
 from json import *
-from time import time
+
+import numpy as np
 
 c_float_p = POINTER(c_float)
 c_int_p = POINTER(c_int)
@@ -16,7 +13,7 @@ print(PARENT_DIR)
 
 SYSTEM = platform.system()
 if SYSTEM == 'Darwin':
-    LIB_PATH = '%s/extension/build/%s/libkernel_kmeans.dylib' % (PARENT_DIR, SYSTEM)
+    LIB_PATH = '%s/extension/build/%s/libgauss_kernel_kmeans.dylib' % (PARENT_DIR, SYSTEM)
 else:
     raise ValueError('Platform "%s" is not supported' % SYSTEM)
 
@@ -36,10 +33,10 @@ class Plugin:
         w = a.shape[1]
         h = a.shape[0]
         params = {
-            'n_clusters': kwargs.get('n_clusters', 3),
+            'n_clusters': kwargs.get('n_clusters', 2),
             'max_it': kwargs.get('max_it', 100),
             'eps': kwargs.get('eps', 0.001),
-            'kernel': kwargs.get('kernel', 'cos')
+            'sigma': kwargs.get('sigma', 1.0)
         }
         params = create_string_buffer(str.encode(dumps(params)))
         a_min, a_max = np.min(a), np.max(a)
@@ -52,4 +49,3 @@ class Plugin:
     def __exit__(self, exc_type, exc_val, exc_tb):
         # self.lib.DestroyPlugin(self.obj)
         pass
-
