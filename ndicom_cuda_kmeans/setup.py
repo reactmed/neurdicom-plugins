@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import os.path as path
 
 setup(
-    name='cuda_kmeans',
+    name='ndicom_cuda_kmeans',
     version='1.0',
     author='Roman Baigildin',
     author_email='egdeveloper@mail.ru',

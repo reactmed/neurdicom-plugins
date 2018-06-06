@@ -1,0 +1,3 @@
+/Users/macbook/Documents/Education/4_Year/DiplomaWork/Application/NEW/neurdicom_plugins/region_growing/region_growing/extension/src/CMakeFiles/rebuild_cache.dir
+/Users/macbook/Documents/Education/4_Year/DiplomaWork/Application/NEW/neurdicom_plugins/region_growing/region_growing/extension/src/CMakeFiles/edit_cache.dir
+/Users/macbook/Documents/Education/4_Year/DiplomaWork/Application/NEW/neurdicom_plugins/region_growing/region_growing/extension/src/CMakeFiles/c_region_growing.dir
