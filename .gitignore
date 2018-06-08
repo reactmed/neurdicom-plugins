@@ -2,3 +2,5 @@
 *.zip
 .DS_Store
 *.iml
+dist/
+build/

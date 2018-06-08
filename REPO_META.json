@@ -3,493 +3,623 @@
   "url": "https://github.com/reactmed/neurdicom",
   "plugins": [
     {
+      "author": "Roman Baygildin",
       "name": "ndicom_cuda_kmeans",
-      "meta": {
-        "author": "Roman Baygildin",
-        "name": "cuda_kmeans",
-        "version": "1.0",
-        "display_name": "CUDA KMeans Segmentation",
-        "modalities": [
-          "MR",
-          "CT"
-        ],
-        "params": {
-          "max_it": {
-            "type": "int",
-            "is_required": false,
-            "default": 100,
-            "display_name": "Number of iterations",
-            "hint": "Number of iterations"
-          },
-          "n_clusters": {
-            "type": "int",
-            "is_required": false,
-            "default": 3,
-            "display_name": "Number of clusters",
-            "hint": "Number of clusters"
-          },
-          "numpass": {
-            "type": "int",
-            "is_required": false,
-            "default": 10,
-            "display_name": "Number of pass",
-            "hint": "Number of skull stripping passes"
-          },
-          "median_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Median radius",
-            "hint": "Median radius of skull stripping"
-          },
-          "high_intensity_threshold": {
-            "type": "float",
-            "is_required": false,
-            "default": 0.1,
-            "display_name": "High intensity threshold",
-            "hint": "High intensity threshold"
-          },
-          "blur_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Blur radius",
-            "hint": "Blur radius"
-          },
-          "dilation_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Dilation radius",
-            "hint": "Dilation radius"
-          },
-          "dilation_iterations": {
-            "type": "int",
-            "is_required": false,
-            "default": 1,
-            "display_name": "Dilation iterations",
-            "hint": "Dilation iterations"
-          },
-          "all_segments": {
-            "type": "bool",
-            "is_required": false,
-            "default": true,
-            "display_name": "Get all segments",
-            "hint": "Get all segments"
-          }
+      "version": "1.0",
+      "display_name": "CUDA KMeans Segmentation",
+      "modalities": [
+        "MR",
+        "CT"
+      ],
+      "params": {
+        "max_it": {
+          "type": "int",
+          "is_required": false,
+          "default": 100,
+          "display_name": "Number of iterations",
+          "hint": "Number of iterations"
         },
-        "type": "SEGMENT",
-        "result": {
-          "type": "IMAGE"
+        "n_clusters": {
+          "type": "int",
+          "is_required": false,
+          "default": 3,
+          "display_name": "Number of clusters",
+          "hint": "Number of clusters"
+        },
+        "numpass": {
+          "type": "int",
+          "is_required": false,
+          "default": 10,
+          "display_name": "Number of pass",
+          "hint": "Number of skull stripping passes"
+        },
+        "median_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Median radius",
+          "hint": "Median radius of skull stripping"
+        },
+        "high_intensity_threshold": {
+          "type": "float",
+          "is_required": false,
+          "default": 0.1,
+          "display_name": "High intensity threshold",
+          "hint": "High intensity threshold"
+        },
+        "blur_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Blur radius",
+          "hint": "Blur radius"
+        },
+        "dilation_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Dilation radius",
+          "hint": "Dilation radius"
+        },
+        "dilation_iterations": {
+          "type": "int",
+          "is_required": false,
+          "default": 1,
+          "display_name": "Dilation iterations",
+          "hint": "Dilation iterations"
+        },
+        "all_segments": {
+          "type": "bool",
+          "is_required": false,
+          "default": true,
+          "display_name": "Show all segments",
+          "hint": "Show all segments"
         }
+      },
+      "type": "SEGMENT",
+      "result": {
+        "type": "IMAGE"
       }
     },
     {
+      "author": "Roman Baygildin",
       "name": "ndicom_fcm",
-      "meta": {
-        "author": "Roman Baygildin",
-        "name": "fcm",
-        "display_name": "FCM Segmentation",
-        "version": "1.0",
-        "modalities": [
-          "MR",
-          "CT"
-        ],
-        "params": {
-          "n_clusters": {
-            "type": "int",
-            "is_required": false,
-            "default": 3,
-            "display_name": "Number of clusters",
-            "hint": "Number of clusters"
-          },
-          "m": {
-            "type": "float",
-            "is_required": false,
-            "default": 2,
-            "display_name": "Membership",
-            "hint": "Membership"
-          },
-          "eps": {
-            "type": "float",
-            "default": 0.001,
-            "is_required": false,
-            "display_name": "Error",
-            "hint": "Stop criterion"
-          },
-          "max_it": {
-            "type": "int",
-            "is_required": false,
-            "default": 100,
-            "display_name": "Maximum iterations",
-            "hint": "Maximum iterations"
-          },
-          "numpass": {
-            "type": "int",
-            "is_required": false,
-            "default": 10,
-            "display_name": "Number of pass",
-            "hint": "Number of skull stripping passes"
-          },
-          "median_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Median radius",
-            "hint": "Median radius of skull stripping"
-          }
+      "display_name": "FCM Segmentation",
+      "version": "1.0",
+      "modalities": [
+        "MR",
+        "CT"
+      ],
+      "params": {
+        "n_clusters": {
+          "type": "int",
+          "is_required": false,
+          "default": 3,
+          "display_name": "Number of clusters",
+          "hint": "Number of clusters"
         },
-        "result": {
-          "type": "IMAGE"
+        "m": {
+          "type": "float",
+          "is_required": false,
+          "default": 2,
+          "display_name": "Membership",
+          "hint": "Membership"
         },
-        "type": "SEGMENT"
+        "eps": {
+          "type": "float",
+          "default": 0.001,
+          "is_required": false,
+          "display_name": "Error",
+          "hint": "Stop criterion"
+        },
+        "max_it": {
+          "type": "int",
+          "is_required": false,
+          "default": 100,
+          "display_name": "Maximum iterations",
+          "hint": "Maximum iterations"
+        },
+        "numpass": {
+          "type": "int",
+          "is_required": false,
+          "default": 10,
+          "display_name": "Number of pass",
+          "hint": "Number of skull stripping passes"
+        },
+        "median_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Median radius",
+          "hint": "Median radius of skull stripping"
+        }
+      },
+      "result": {
+        "type": "IMAGE"
+      },
+      "type": "SEGMENT"
+    },
+    {
+      "author": "Roman Baygildin",
+      "name": "ndicom_gauss_kernel_kmeans",
+      "version": "1.0",
+      "display_name": "Gauss KMeans Segmentation",
+      "modalities": [
+        "MR",
+        "CT"
+      ],
+      "params": {
+        "n_clusters": {
+          "type": "int",
+          "is_required": false,
+          "default": 3,
+          "range": [
+            2,
+            32
+          ],
+          "display_name": "Number of clusters",
+          "hint": "Number of clusters"
+        },
+        "sigma": {
+          "type": "float",
+          "is_required": false,
+          "default": 1.0,
+          "display_name": "Sigma",
+          "hint": "Sigma"
+        },
+        "numpass": {
+          "type": "int",
+          "is_required": false,
+          "default": 10,
+          "display_name": "Number of pass",
+          "hint": "Number of skull stripping passes"
+        },
+        "median_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Median radius",
+          "hint": "Median radius of skull stripping"
+        },
+        "high_intensity_threshold": {
+          "type": "float",
+          "is_required": false,
+          "default": 0.1,
+          "display_name": "High intensity threshold",
+          "hint": "High intensity threshold"
+        },
+        "blur_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Blur radius",
+          "hint": "Blur radius"
+        },
+        "dilation_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Dilation radius",
+          "hint": "Dilation radius"
+        },
+        "dilation_iterations": {
+          "type": "int",
+          "is_required": false,
+          "default": 1,
+          "display_name": "Dilation iterations",
+          "hint": "Dilation iterations"
+        }
+      },
+      "type": "SEGMENT",
+      "result": {
+        "type": "IMAGE"
       }
     },
     {
+      "author": "Roman Baygildin",
       "name": "ndicom_gaussian_mixture",
-      "meta": {
-        "author": "Roman Baygildin",
-        "name": "gaussian_mixture",
-        "version": "1.0",
-        "display_name": "Gaussian Mixture Segmentation",
-        "modalities": [
-          "MR",
-          "CT"
-        ],
-        "params": {
-          "n_components": {
-            "type": "int",
-            "is_required": false,
-            "default": 3,
-            "display_name": "Number of components",
-            "hint": "Number of components"
-          },
-          "numpass": {
-            "type": "int",
-            "is_required": false,
-            "default": 10,
-            "display_name": "Number of pass",
-            "hint": "Number of skull stripping passes"
-          },
-          "median_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Median radius",
-            "hint": "Median radius of skull stripping"
-          }
+      "version": "1.0",
+      "display_name": "Gaussian Mixture Segmentation",
+      "modalities": [
+        "MR",
+        "CT"
+      ],
+      "params": {
+        "n_components": {
+          "type": "int",
+          "is_required": false,
+          "default": 3,
+          "display_name": "Number of components",
+          "hint": "Number of components"
         },
-        "type": "SEGMENT",
-        "result": {
-          "type": "IMAGE"
+        "numpass": {
+          "type": "int",
+          "is_required": false,
+          "default": 10,
+          "display_name": "Number of pass",
+          "hint": "Number of skull stripping passes"
+        },
+        "median_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Median radius",
+          "hint": "Median radius of skull stripping"
         }
+      },
+      "type": "SEGMENT",
+      "result": {
+        "type": "IMAGE"
       }
     },
     {
+      "author": "Roman Baygildin",
       "name": "ndicom_improved_kmeans",
-      "meta": {
-        "author": "Roman Baygildin",
-        "name": "improved_kmeans",
-        "version": "1.0",
-        "display_name": "Improved KMeans Segmentation",
-        "modalities": [
-          "MR",
-          "CT"
-        ],
-        "params": {
-          "n_clusters": {
-            "type": "int",
-            "is_required": false,
-            "default": 3,
-            "display_name": "Number of clusters",
-            "hint": "Number of clusters"
-          },
-          "numpass": {
-            "type": "int",
-            "is_required": false,
-            "default": 10,
-            "display_name": "Number of pass",
-            "hint": "Number of skull stripping passes"
-          },
-          "median_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Median radius",
-            "hint": "Median radius of skull stripping"
-          },
-          "high_intensity_threshold": {
-            "type": "float",
-            "is_required": false,
-            "default": 0.1,
-            "display_name": "High intensity threshold",
-            "hint": "High intensity threshold"
-          },
-          "blur_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Blur radius",
-            "hint": "Blur radius"
-          },
-          "dilation_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Dilation radius",
-            "hint": "Dilation radius"
-          },
-          "dilation_iterations": {
-            "type": "int",
-            "is_required": false,
-            "default": 1,
-            "display_name": "Dilation iterations",
-            "hint": "Dilation iterations"
-          }
+      "version": "1.0",
+      "display_name": "Improved KMeans Segmentation",
+      "modalities": [
+        "MR",
+        "CT"
+      ],
+      "params": {
+        "n_clusters": {
+          "type": "int",
+          "is_required": false,
+          "default": 3,
+          "display_name": "Number of clusters",
+          "hint": "Number of clusters"
         },
-        "type": "SEGMENT",
-        "result": {
-          "type": "IMAGE"
+        "numpass": {
+          "type": "int",
+          "is_required": false,
+          "default": 10,
+          "display_name": "Number of pass",
+          "hint": "Number of skull stripping passes"
+        },
+        "median_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Median radius",
+          "hint": "Median radius of skull stripping"
+        },
+        "high_intensity_threshold": {
+          "type": "float",
+          "is_required": false,
+          "default": 0.1,
+          "display_name": "High intensity threshold",
+          "hint": "High intensity threshold"
+        },
+        "blur_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Blur radius",
+          "hint": "Blur radius"
+        },
+        "dilation_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Dilation radius",
+          "hint": "Dilation radius"
+        },
+        "dilation_iterations": {
+          "type": "int",
+          "is_required": false,
+          "default": 1,
+          "display_name": "Dilation iterations",
+          "hint": "Dilation iterations"
         }
+      },
+      "type": "SEGMENT",
+      "result": {
+        "type": "IMAGE"
       }
     },
     {
+      "author": "Roman Baigildin",
+      "name": "ndicom_kernel_kmeans",
+      "version": "1.0",
+      "display_name": "Kernel KMeans Segmentation",
+      "modalities": [
+        "MR",
+        "CT"
+      ],
+      "params": {
+        "n_clusters": {
+          "type": "int",
+          "is_required": false,
+          "default": 3,
+          "display_name": "Number of clusters",
+          "hint": "Number of clusters"
+        },
+        "kernel": {
+          "type": "string",
+          "is_required": false,
+          "default": "cos",
+          "display_name": "Kernel",
+          "values": {
+            "cos": "Cosinus",
+            "gauss": "Gauss",
+            "triangular": "Triangular",
+            "epanechnikov": "Epanechnikov"
+          },
+          "hint": "Kernel"
+        },
+        "numpass": {
+          "type": "int",
+          "is_required": false,
+          "default": 10,
+          "display_name": "Number of pass",
+          "hint": "Number of skull stripping passes"
+        },
+        "median_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Median radius",
+          "hint": "Median radius of skull stripping"
+        },
+        "high_intensity_threshold": {
+          "type": "float",
+          "is_required": false,
+          "default": 0.1,
+          "display_name": "High intensity threshold",
+          "hint": "High intensity threshold"
+        },
+        "blur_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Blur radius",
+          "hint": "Blur radius"
+        },
+        "dilation_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Dilation radius",
+          "hint": "Dilation radius"
+        },
+        "dilation_iterations": {
+          "type": "int",
+          "is_required": false,
+          "default": 1,
+          "display_name": "Dilation iterations",
+          "hint": "Dilation iterations"
+        }
+      },
+      "type": "SEGMENT",
+      "result": {
+        "type": "IMAGE"
+      }
+    },
+    {
+      "author": "Roman Baygildin",
       "name": "ndicom_kmeans",
-      "meta": {
-        "author": "Roman Baygildin",
-        "name": "kmeans",
-        "version": "1.0",
-        "display_name": "KMeans Segmentation",
-        "modalities": [
-          "MR",
-          "CT"
-        ],
-        "params": {
-          "n_clusters": {
-            "type": "int",
-            "is_required": false,
-            "default": 3,
-            "display_name": "Number of clusters",
-            "hint": "Number of clusters"
-          },
-          "numpass": {
-            "type": "int",
-            "is_required": false,
-            "default": 10,
-            "display_name": "Number of pass",
-            "hint": "Number of skull stripping passes"
-          },
-          "median_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Median radius",
-            "hint": "Median radius of skull stripping"
-          }
+      "version": "1.0",
+      "display_name": "KMeans Segmentation",
+      "modalities": [
+        "MR",
+        "CT"
+      ],
+      "params": {
+        "n_clusters": {
+          "type": "int",
+          "is_required": false,
+          "default": 3,
+          "display_name": "Number of clusters",
+          "hint": "Number of clusters"
         },
-        "type": "SEGMENT",
-        "result": {
-          "type": "IMAGE"
+        "numpass": {
+          "type": "int",
+          "is_required": false,
+          "default": 10,
+          "display_name": "Number of pass",
+          "hint": "Number of skull stripping passes"
+        },
+        "median_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Median radius",
+          "hint": "Median radius of skull stripping"
         }
+      },
+      "type": "SEGMENT",
+      "result": {
+        "type": "IMAGE"
       }
     },
     {
+      "author": "Roman Baygildin",
       "name": "ndicom_meanshift",
-      "meta": {
-        "author": "Roman Baygildin",
-        "name": "meanshift",
-        "version": "1.0",
-        "display_name": "Mean Shift Segmentation",
-        "modalities": [
-          "MR",
-          "CT"
-        ],
-        "params": {
-          "quantile": {
-            "type": "float",
-            "is_required": false,
-            "default": 0.1,
-            "display_name": "Quantile",
-            "hint": "Quantile"
-          },
-          "n_samples": {
-            "type": "int",
-            "is_required": false,
-            "default": 100,
-            "display_name": "Number of samples",
-            "hint": "Number of samples"
-          },
-          "numpass": {
-            "type": "int",
-            "is_required": false,
-            "default": 10,
-            "display_name": "Number of pass",
-            "hint": "Number of skull stripping passes"
-          },
-          "median_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Median radius",
-            "hint": "Median radius of skull stripping"
-          },
-          "high_intensity_threshold": {
-            "type": "float",
-            "is_required": false,
-            "default": 0.1,
-            "display_name": "High intensity threshold",
-            "hint": "High intensity threshold"
-          },
-          "blur_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Blur radius",
-            "hint": "Blur radius"
-          },
-          "dilation_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Dilation radius",
-            "hint": "Dilation radius"
-          },
-          "dilation_iterations": {
-            "type": "int",
-            "is_required": false,
-            "default": 1,
-            "display_name": "Dilation iterations",
-            "hint": "Dilation iterations"
-          }
+      "version": "1.0",
+      "display_name": "Mean Shift Segmentation",
+      "modalities": [
+        "MR",
+        "CT"
+      ],
+      "params": {
+        "quantile": {
+          "type": "float",
+          "is_required": false,
+          "default": 0.1,
+          "display_name": "Quantile",
+          "hint": "Quantile"
         },
-        "type": "SEGMENT",
-        "result": {
-          "type": "IMAGE"
+        "n_samples": {
+          "type": "int",
+          "is_required": false,
+          "default": 100,
+          "display_name": "Number of samples",
+          "hint": "Number of samples"
+        },
+        "numpass": {
+          "type": "int",
+          "is_required": false,
+          "default": 10,
+          "display_name": "Number of pass",
+          "hint": "Number of skull stripping passes"
+        },
+        "median_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Median radius",
+          "hint": "Median radius of skull stripping"
+        },
+        "high_intensity_threshold": {
+          "type": "float",
+          "is_required": false,
+          "default": 0.1,
+          "display_name": "High intensity threshold",
+          "hint": "High intensity threshold"
+        },
+        "blur_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Blur radius",
+          "hint": "Blur radius"
+        },
+        "dilation_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Dilation radius",
+          "hint": "Dilation radius"
+        },
+        "dilation_iterations": {
+          "type": "int",
+          "is_required": false,
+          "default": 1,
+          "display_name": "Dilation iterations",
+          "hint": "Dilation iterations"
         }
+      },
+      "type": "SEGMENT",
+      "result": {
+        "type": "IMAGE"
       }
     },
     {
+      "author": "Roman Baygildin",
       "name": "ndicom_region_growing",
-      "meta": {
-        "author": "Roman Baygildin",
-        "name": "region_growing",
-        "version": "1.0",
-        "display_name": "Region Growing Segmentation",
-        "modalities": [
-          "MR",
-          "CT"
-        ],
-        "params": {
-          "numpass": {
-            "type": "int",
-            "is_required": false,
-            "default": 10,
-            "display_name": "Number of pass",
-            "hint": "Number of skull stripping passes"
-          },
-          "median_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Median radius",
-            "hint": "Median radius of skull stripping"
-          },
-          "threshold": {
-            "type": "float",
-            "is_required": false,
-            "default": 50.0,
-            "range": [
-              0.0,
-              100.0
-            ],
-            "step": 5.0,
-            "display_name": "Region membership threshold",
-            "hint": "Region membership threshold"
-          },
-          "connectivity": {
-            "type": "int",
-            "is_required": false,
-            "default": 6,
-            "range": [
-              6,
-              8
-            ],
-            "display_name": "Connectivity",
-            "hint": "Connectivity"
-          },
-          "dilation_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Dilation radius",
-            "hint": "Dilation radius"
-          },
-          "dilation_iterations": {
-            "type": "int",
-            "is_required": false,
-            "default": 1,
-            "display_name": "Dilation iterations",
-            "hint": "Dilation iterations"
-          }
+      "version": "1.0",
+      "display_name": "Region Growing Segmentation",
+      "modalities": [
+        "MR",
+        "CT"
+      ],
+      "params": {
+        "numpass": {
+          "type": "int",
+          "is_required": false,
+          "default": 10,
+          "display_name": "Number of pass",
+          "hint": "Number of skull stripping passes"
         },
-        "type": "SEGMENT",
-        "result": {
-          "type": "IMAGE"
+        "median_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Median radius",
+          "hint": "Median radius of skull stripping"
+        },
+        "threshold": {
+          "type": "float",
+          "is_required": false,
+          "default": 50.0,
+          "range": [
+            0.0,
+            100.0
+          ],
+          "step": 5.0,
+          "display_name": "Region membership threshold",
+          "hint": "Region membership threshold"
+        },
+        "connectivity": {
+          "type": "int",
+          "is_required": false,
+          "default": 6,
+          "range": [
+            6,
+            8
+          ],
+          "display_name": "Connectivity",
+          "hint": "Connectivity"
+        },
+        "dilation_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Dilation radius",
+          "hint": "Dilation radius"
+        },
+        "dilation_iterations": {
+          "type": "int",
+          "is_required": false,
+          "default": 1,
+          "display_name": "Dilation iterations",
+          "hint": "Dilation iterations"
         }
+      },
+      "type": "SEGMENT",
+      "result": {
+        "type": "IMAGE"
       }
     },
     {
+      "author": "Roman Baygildin",
       "name": "ndicom_thresholding",
-      "meta": {
-        "author": "Roman Baygildin",
-        "name": "thresholding",
-        "display_name": "Thresholding segmentation",
-        "version": "1.0",
-        "modalities": [
-          "MR",
-          "CT"
-        ],
-        "params": {
-          "threshold": {
-            "type": "int",
-            "is_required": false,
-            "display_name": "Threshold",
-            "hint": "Threshold value"
-          },
-          "max_it": {
-            "type": "int",
-            "is_required": false,
-            "default": 100,
-            "display_name": "Maximum iterations",
-            "hint": "Maximum iterations of thresholding segmentation"
-          },
-          "eps": {
-            "type": "float",
-            "is_required": false,
-            "default": 0.001,
-            "display_name": "Error",
-            "hint": "Stop criterion"
-          },
-          "numpass": {
-            "type": "int",
-            "is_required": false,
-            "default": 10,
-            "display_name": "Number of pass",
-            "hint": "Number of skull stripping passes"
-          },
-          "median_radius": {
-            "type": "int",
-            "is_required": false,
-            "default": 5,
-            "display_name": "Median radius",
-            "hint": "Median radius of skull stripping"
-          }
+      "display_name": "Thresholding segmentation",
+      "version": "1.0",
+      "modalities": [
+        "MR",
+        "CT"
+      ],
+      "params": {
+        "threshold": {
+          "type": "int",
+          "is_required": false,
+          "display_name": "Threshold",
+          "hint": "Threshold value"
         },
-        "result": {
-          "type": "IMAGE"
+        "max_it": {
+          "type": "int",
+          "is_required": false,
+          "default": 100,
+          "display_name": "Maximum iterations",
+          "hint": "Maximum iterations of thresholding segmentation"
         },
-        "type": "SEGMENT"
-      }
+        "eps": {
+          "type": "float",
+          "is_required": false,
+          "default": 0.001,
+          "display_name": "Error",
+          "hint": "Stop criterion"
+        },
+        "numpass": {
+          "type": "int",
+          "is_required": false,
+          "default": 10,
+          "display_name": "Number of pass",
+          "hint": "Number of skull stripping passes"
+        },
+        "median_radius": {
+          "type": "int",
+          "is_required": false,
+          "default": 5,
+          "display_name": "Median radius",
+          "hint": "Median radius of skull stripping"
+        }
+      },
+      "result": {
+        "type": "IMAGE"
+      },
+      "type": "SEGMENT"
     }
   ]
 }
