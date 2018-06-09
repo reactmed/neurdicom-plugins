@@ -132,6 +132,13 @@
           "default": 5,
           "display_name": "Median radius",
           "hint": "Median radius of skull stripping"
+        },
+        "all_segments": {
+          "type": "bool",
+          "is_required": false,
+          "default": true,
+          "display_name": "Show all segments",
+          "hint": "Show all segments"
         }
       },
       "result": {
@@ -208,6 +215,13 @@
           "default": 1,
           "display_name": "Dilation iterations",
           "hint": "Dilation iterations"
+        },
+        "all_segments": {
+          "type": "bool",
+          "is_required": false,
+          "default": true,
+          "display_name": "Show all segments",
+          "hint": "Show all segments"
         }
       },
       "type": "SEGMENT",
@@ -245,6 +259,13 @@
           "default": 5,
           "display_name": "Median radius",
           "hint": "Median radius of skull stripping"
+        },
+        "all_segments": {
+          "type": "bool",
+          "is_required": false,
+          "default": true,
+          "display_name": "Show all segments",
+          "hint": "Show all segments"
         }
       },
       "type": "SEGMENT",
@@ -310,6 +331,13 @@
           "default": 1,
           "display_name": "Dilation iterations",
           "hint": "Dilation iterations"
+        },
+        "all_segments": {
+          "type": "bool",
+          "is_required": false,
+          "default": true,
+          "display_name": "Show all segments",
+          "hint": "Show all segments"
         }
       },
       "type": "SEGMENT",
@@ -388,6 +416,13 @@
           "default": 1,
           "display_name": "Dilation iterations",
           "hint": "Dilation iterations"
+        },
+        "all_segments": {
+          "type": "bool",
+          "is_required": false,
+          "default": true,
+          "display_name": "Show all segments",
+          "hint": "Show all segments"
         }
       },
       "type": "SEGMENT",
@@ -425,6 +460,13 @@
           "default": 5,
           "display_name": "Median radius",
           "hint": "Median radius of skull stripping"
+        },
+        "all_segments": {
+          "type": "bool",
+          "is_required": false,
+          "default": true,
+          "display_name": "Show all segments",
+          "hint": "Show all segments"
         }
       },
       "type": "SEGMENT",
@@ -497,6 +539,13 @@
           "default": 1,
           "display_name": "Dilation iterations",
           "hint": "Dilation iterations"
+        },
+        "all_segments": {
+          "type": "bool",
+          "is_required": false,
+          "default": true,
+          "display_name": "Show all segments",
+          "hint": "Show all segments"
         }
       },
       "type": "SEGMENT",
@@ -564,6 +613,13 @@
           "default": 1,
           "display_name": "Dilation iterations",
           "hint": "Dilation iterations"
+        },
+        "all_segments": {
+          "type": "bool",
+          "is_required": false,
+          "default": true,
+          "display_name": "Show all segments",
+          "hint": "Show all segments"
         }
       },
       "type": "SEGMENT",
@@ -614,6 +670,13 @@
           "default": 5,
           "display_name": "Median radius",
           "hint": "Median radius of skull stripping"
+        },
+        "all_segments": {
+          "type": "bool",
+          "is_required": false,
+          "default": true,
+          "display_name": "Show all segments",
+          "hint": "Show all segments"
         }
       },
       "result": {
